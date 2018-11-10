@@ -19,6 +19,7 @@ def udn_news():
     '''
     # rss_url = 'https://udn.com/rssfeed/news/2/6638?ch=news'
     rss_url = 'https://tw.appledaily.com/rss/newcreate/kind/rnews/type/106'
+    #rss_url ='https://www.bnext.com.tw/rss'
  
     # 抓取資料
     rss = feedparser.parse(rss_url)
@@ -95,4 +96,29 @@ def Dcard():
         string += pre_url+item['href']+'\n'
     
     return string
+    
+def google_query():
+    google_url = 'https://www.google.com.tw/search'
+    # 查詢參數
+    my_params = {'q': 'imphoenix'}
+
+    # 下載 Google 搜尋結果
+    r = requests.get(google_url, params = my_params)
+    # 確認是否下載成功
+    if r.status_code == requests.codes.ok:
+        # 以 BeautifulSoup 解析 HTML 原始碼
+        soup = BeautifulSoup(r.text, 'html.parser')
+
+          # 觀察 HTML 原始碼
+          # print(soup.prettify())
+
+          # 以 CSS 的選擇器來抓取 Google 的搜尋結果
+        items = soup.select('div.g > h3.r > a[href^="/url"]')           
+        string = '最新 2 篇 google貼文：\n'
+        for  item in items[:2]:
+            #print("標題：" + i.text)
+            text = item['href'].replace('/url?q=','')
+            string += text+'\n'
+    
+        return string    
     

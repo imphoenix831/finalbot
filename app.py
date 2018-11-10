@@ -150,7 +150,14 @@ def handle_message(event):
             event.reply_token,
             TextSendMessage(text=text))
         return 0 
-    
+
+    if re.search('Google|google', event.message.text, re.IGNORECASE):
+        text = corwler.google_query()
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=text))
+        return 0 
+        
    
     if message == 'googlemap':
         # 取得最新評價
