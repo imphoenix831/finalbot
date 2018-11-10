@@ -61,7 +61,8 @@ def google():
     pretext = ')]}\''
     
     # 爬下com
-    url = 'https://www.google.com.tw/maps/preview/reviews?authuser=0&hl=zh-TW&gl=tw&pb=!1s0x3442abcfe9e7617d%3A0x496596e7748a5757!2i0!3i10!4e3!7m4!2b1!3b1!5b1!6b1'
+    #url = 'https://www.google.com.tw/maps/preview/reviews?authuser=0&hl=zh-TW&gl=tw&pb=!1s0x3442abcfe9e7617d%3A0x496596e7748a5757!2i0!3i10!4e3!7m4!2b1!3b1!5b1!6b1'
+    url = 'https://www.google.com/maps/preview/reviews?authuser=0&hl=zh-TW&gl=tw&pb=!1s0x3442a98bd9f5f4e9%3A0x2c7ce8f62da01bc6!2i8!3i10!4e6!5m2!1sGVnmW5HKMsX78QWJrp_wDA!7e81!7m4!2b1!3b1!5b1!6b1'
     resp = requests.get(url)
     text = resp.text.replace(pretext,'')
     soup = json.loads(text)
