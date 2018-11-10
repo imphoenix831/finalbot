@@ -97,10 +97,10 @@ def Dcard():
     
     return string
     
-def google_query():
+def google_query(message):
     google_url = 'https://www.google.com.tw/search'
     # 查詢參數
-    my_params = {'q': 'imphoenix'}
+    my_params = {'q': message}
 
     # 下載 Google 搜尋結果
     r = requests.get(google_url, params = my_params)

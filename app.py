@@ -169,6 +169,12 @@ def handle_message(event):
                         event.reply_token,
                         remessage)
         return 0 
+    else:
+        text = corwler.google_query(message)
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=text))
+        return 0 
     
     
     line_bot_api.reply_message(
