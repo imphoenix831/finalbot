@@ -61,7 +61,7 @@ def handle_follow(event):
     print(name)
     print(uid)
     # Udbddac07bac1811e17ffbbd9db459079
-    if mongodb.find_user(uid,'users')<= 0:   ## <=0 表示找不到User 資料
+    if mongodb.find_user(uid,'users')<= 0:   ## <=0 表示找不到User 資料,則為新使用者
         # 整理資料
         dic = {'userid':uid,
                'username':name,
